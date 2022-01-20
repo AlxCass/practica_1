@@ -1,0 +1,169 @@
+/*
+Hoja de estilo responsiva
+Autor: BAOZ
+*/
+a:link{color:DeepSkyBlue;}
+a:visited{color:PowderBlue; font-weight: lighter;}
+a:hover{color:DodgerBlue; font-weight: bold;}
+a.menu{
+	display: inline;
+	padding: 1.5em;
+}
+
+
+.tbl {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+.tbl td, .tbl th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.tbl tr:nth-child(even){background-color: #f2f2f2;}
+
+.tbl tr:hover {background-color: #ddd;}
+
+.tbl th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #68a3c0;
+  color: white;
+  
+}
+
+body{
+	font-family: Verdana, Helvetica, Arial, "Times New Roman";
+	color: MidnightBlue;
+	margin-block-start: 0.1em;
+	margin-block-end: 0.1em;
+	margin-inline-start: 0.1em;
+	margin-inline-end: 0.1em;
+}
+img, video, canvas {
+  max-width: 100%;
+}
+header {
+	font-weight:bold;
+	font-size: large;
+	text-transform: capitalize;
+	text-shadow: 0.3em 0.3em 0.6em Teal; /*sombra horizontal y sombra vertical*/
+}
+header.main {
+	padding-top: 0.05em;
+	height: 5em;
+	color: hsl(210, 100%, 92.9%);
+	background-color: rgba(12, 9, 47, 0.97);/*Blanco con transparencia*/
+}
+nav {
+    width: 100%;
+	height: 2em;
+	margin: 0;
+	background-color:hsla(204, 82%, 52%, 0.5);
+}
+aside{
+    width: 5%;
+	height: inherit;
+	min-height: 30em;
+	float: left;
+	background-color:#658AAA; /*AliceBlue*/
+}
+section {
+	width: 90%;
+	height: auto;
+	min-height: 30em;
+	background-color:rgb(146, 164, 172);
+	float: left;
+	text-transform: none;
+	padding: 20px;
+}
+footer{
+	font-size: 75%;
+	padding: 0.625em 0.9em 1.4em;
+	background-color:AliceBlue;
+	text-align: center;
+	height: auto;
+	min-height: 2em;
+}
+#titPral{
+	display: inline;
+	vertical-align:90%;
+}
+#contenido_central{
+	text-align: justify;
+	padding: 0.5em;
+}
+#fijo{
+	position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+}
+
+.por_columnas {
+	/*Definir número de columnas*/
+    column-count: 4;
+
+	/*Definir separación entre columnas
+		valor en pixeles|normal|initial|inherit
+	*/
+    column-gap: 2em;
+
+	/*
+		Para definir características de la línea de separación entre columnas:
+		-->Directo, column-rule: ancho, estilo y color
+		-->Por partes, column-rule-width, column-rule-style, column-rule-color
+	*/
+
+	/*Definir ancho de línea de separación
+	medium|thin|thick|valor en pixeles |initial|inherit
+	*/
+    column-rule-width: thin;
+
+	/*Definir estilo de línea de separación
+		none|hidden|dotted|dashed|solid|double|groove|ridge|inset|outset|initial|inherit
+	*/
+    column-rule-style: dotted;
+
+	/*Color de la línea*/
+    column-rule-color: navy;
+}
+
+h3{
+	column-span: all;
+	text-align: center;
+}
+
+/* Para ajuste responsivo*/
+@media screen and (max-width: 600px){
+	header {
+		height: auto;
+	}
+	header.main {
+		height: auto;
+	}
+	nav {
+		height: auto;
+	}
+	section {
+		float: none;
+		width: auto;
+	}
+	aside {
+		float: none;
+		width: auto;
+		height: auto;
+		min-height: 1em;
+	}
+	a.menu{
+		display: block;
+	}
+	table, thead, tbody, th, td, tr {
+		display: block;
+	}
+	.por_columnas {
+		column-count: 1;
+	}
+}

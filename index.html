@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pr&aacute;ctica 1</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/trad4.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js">
+	</script>
+
+	<script>
+
+			var aplic = angular.module('practica1', []);
+			
+			aplic.controller('controlador', function($scope) {
+			$scope.arrRegistrados=[
+				{"nombre":"", "color": "", "busqueda": "", "correo": "", "clave": "", "originario": "", "direccion":""}
+			];
+			
+
+			$scope.agregar = function(nombre,apellidoP,apellidoM,color,busqueda,correo,clave,originario,direccion){
+				$scope.nombreCompleto = nombre+" "+apellidoP+" "+apellidoM;
+
+				var objeto = {"nombre": $scope.nombreCompleto, "color": $scope.color, "busqueda": $scope.busqueda, "correo": $scope.correo, "clave": $scope.clave, "originario": $scope.originario, "direccion" : $scope.direccion};
+                
+				$scope.arrRegistrados.push(objeto);
+				
+			}
+
+		});
+		
+
+	</script>
+</head>
+<body>
+
+	<header class="main">
+		<figure style="display: inline">
+			<img src="media/angular.jpg" border="0" style="height: 90%;" />
+		</figure>
+		<h2 id="titPral" align="center">Ejercicio Basico con Angular </h2>
+		<figure style="display: inline">
+			<img src="media/angular.jpg" border="0" style="height: 90%;" />
+		</figure>
+	</header>
+	<nav>
+			<a href="index.php" class="menu">Inicio</a>&nbsp;&nbsp;
+			<a href="#" class="menu">Blablabla</a>&nbsp;&nbsp;
+			<a href="#" class="menu">Blablabla</a>&nbsp;&nbsp;
+			<a href="#" class="menu">Blablabla</a>&nbsp;&nbsp;
+		</nav>
+
+	<main>
+		<section ng-app="practica1" ng-controller="controlador">
+			<form ng-submit="agregar(nombre,apellidoP,apellidoM,color,busqueda,correo,clave,originario,direccion)">
+			<label for="nombre">Nombre: </label>
+			<input type="text" required ng-model="nombre">
+        	<br>
+			<label for="apellidoP">Apellido paterno: </label>
+			<input type="text" required ng-model="apellidoP">
+			<br>
+			<label for="apellidoM">Apellido materno: </label>
+			<input type="text" required ng-model="apellidoM">
+			<br>
+			<label for="color">Escoge tu color favorito: </label>
+			<input type="color" required ng-model="color">
+			<br>
+			<label for="busqueda">¿Que esperas encontrar en Bitoo? </label>
+			<select multiple size="3" required ng-model="busqueda">
+				<option>Promociones</option>
+				<option>Productos</option>
+				<option>Servicios</option>
+				<option>Negocios</option>
+				<option>Otras</option>
+			</select>
+			<br>
+			<label for="correo">Ingresa tu correo: </label>
+			<input type="email" placeholder="abc@xmail.com" required ng-model="correo">
+			<br>
+			<label for="clave">Contraseña: </label>
+			<input type="password" pattern="[A-Z]{2}\d{3,4}" required ng-model="clave">
+			<br>
+			<label for="originario">¿Eres originario de Tlaxcala?</label>
+			<select required ng-model="originario">
+				<option>No</option>
+				<option>Si</option>
+			</select>
+			<br>
+			<label for="direccion">Ingresa tu dirección: </label>
+			<textarea required ng-model="direccion"></textarea>
+			<br>
+			<input type="submit" name="Enviar" value="Añadir">
+
+			<table border="1" class="tbl">
+				<tr><th colspan="7">Datos de los participantes</th>
+					<tr><th>Nombre</th>
+						<th>Color</th>
+						<th>Que buscas</th>
+						<th>Correo</th>
+						<th>Contrasenia</th>
+						<th>Originario de Tlaxcala</th>
+						<th>Direccion</th></tr>
+					</tr>
+						<tr ng-repeat="objeto in arrRegistrados">
+							<td>{{objeto.nombre}}</td>
+							<td>{{objeto.color}}</td>
+							<td>{{objeto.busqueda}}</td>
+							<td>{{objeto.correo}}</td>
+							<td>{{objeto.clave}}</td>
+							<td>{{objeto.originario}}</td>
+							<td>{{objeto.direccion}}</td>
+					
+						</tr>
+			</table>
+			</form>
+
+		</section>
+		
+	</main>
+	<footer>
+		<br>
+		Aviso Legal. 
+		<address>
+			Responsable del ejercicio: Alejandro Castelan Romero.
+		</address>
+	</footer>
+</body>
+</html>
